@@ -3,18 +3,17 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Scratch for Trading (Algorand) — MVP</title>
+  <title>ChainBlock - Scratch for Trading</title>
   <link rel="stylesheet" href="styles.css" />
   <!-- Blockly CDN -->
   <script src="https://unpkg.com/blockly/blockly.min.js"></script>
 </head>
 <body>
   <header class="topbar">
-    <h1>Scratch for Trading</h1>
-    <div class="badges">
-      <span class="badge">Algorand</span>
-      <span class="badge">Testnet</span>
-      <span class="badge">Hackathon MVP</span>
+    <h1>ChainBlock - Scratch for Trading</h1>
+    <div class="actions">
+      <button id="btnBacktest" class="btn btn-primary">Run Backtest</button>
+      <button id="btnReset" class="btn">Reset</button>
     </div>
   </header>
 
@@ -22,56 +21,53 @@
     <section class="left">
       <!-- Toolbox (hidden XML) -->
       <xml id="toolbox" style="display:none">
-        <category name="Strategy" colour="#6C5CE7">
-          <block type="if_price"></block>
-          <block type="swap_percent"></block>
-          <block type="stop_after"></block>
+        <!-- 1) CONTROL -->
+        <category name="Control" colour="#6C5CE7">
+          <block type="controls_if"></block>
+          <block type="try_catch"></block>
         </category>
         <sep></sep>
-        <category name="Values" colour="#00B894">
-          <block type="number_input"></block>
+        <!-- 2) EVENTS (boolean conditions you can plug into IF) -->
+        <category name="Events" colour="#00CEC9">
+          <block type="event_price_compare"></block>
+          <block type="event_tweet_contains"></block>
         </category>
+        <sep></sep>
+        <!-- 3) ACTIONS (statements) -->
+        <category name="Actions" colour="#0984E3">
+          <block type="action_buy"></block>
+          <block type="action_sell"></block>
+        </category>
+        <sep></sep>
+        <!-- 4) OPERATORS (built-ins) -->
+        <category name="Operators" colour="#E17055">
+          <block type="logic_compare"></block>
+          <block type="logic_operation"></block>
+          <block type="math_arithmetic"></block>
+          <block type="math_number"></block>
+          <block type="text"></block>
+          <block type="text_join"></block>
+        </category>
+        <sep></sep>
+        <!-- 5) VARIABLES (built-in dynamic var toolbox) -->
+        <category name="Variables" custom="VARIABLE" colour="#E84393"></category>
       </xml>
 
       <!-- Blockly mount point -->
       <div id="blockly" class="blockly"></div>
-
-      <div class="actions">
-        <button id="btnExport" class="btn">Export JSON</button>
-        <button id="btnBacktest" class="btn">Backtest</button>
-        <button id="btnDeploy" class="btn btn-primary">Deploy (mock)</button>
-        <label class="toggle">
-          <input type="checkbox" id="liveMode" /> Live price mock
-        </label>
-      </div>
     </section>
 
     <section class="right">
       <div class="panel">
-        <h3>Strategy JSON</h3>
-        <textarea id="jsonOut" class="code" spellcheck="false" readonly></textarea>
-      </div>
-
-      <div class="panel">
-        <h3>Contract Preview (templated)</h3>
-        <pre id="contractOut" class="code"></pre>
-      </div>
-
-      <div class="panel">
-        <h3>Backtest (mocked)</h3>
-        <canvas id="chart" height="180"></canvas>
+        <h3>Sandbox</h3>
+        <canvas id="chart" height="220"></canvas>
         <div id="btSummary" class="summary"></div>
-      </div>
-
-      <div class="panel">
-        <h3>Deploy Log</h3>
-        <pre id="deployLog" class="code"></pre>
       </div>
     </section>
   </main>
 
   <footer class="footer">
-    <small>Blocks → JSON → PyTeal template → Testnet. Fees ≈ 0.001 ALGO • Atomic Groups • LogicSig</small>
+    <small>Drag blocks to define logic. Click “Run Backtest” to simulate on mock prices.</small>
   </footer>
 
   <script src="customblocks.js"></script>
