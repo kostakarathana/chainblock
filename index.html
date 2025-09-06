@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Scratch for Trading (Algorand) — MVP</title>
+  <link rel="stylesheet" href="styles.css" />
+  <!-- Blockly CDN -->
+  <script src="https://unpkg.com/blockly/blockly.min.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <h1>Scratch for Trading</h1>
+    <div class="badges">
+      <span class="badge">Algorand</span>
+      <span class="badge">Testnet</span>
+      <span class="badge">Hackathon MVP</span>
+    </div>
+  </header>
+
+  <main class="grid">
+    <section class="left">
+      <!-- Toolbox (hidden XML) -->
+      <xml id="toolbox" style="display:none">
+        <category name="Strategy" colour="#6C5CE7">
+          <block type="if_price"></block>
+          <block type="swap_percent"></block>
+          <block type="stop_after"></block>
+        </category>
+        <sep></sep>
+        <category name="Values" colour="#00B894">
+          <block type="number_input"></block>
+        </category>
+      </xml>
+
+      <!-- Blockly mount point -->
+      <div id="blockly" class="blockly"></div>
+
+      <div class="actions">
+        <button id="btnExport" class="btn">Export JSON</button>
+        <button id="btnBacktest" class="btn">Backtest</button>
+        <button id="btnDeploy" class="btn btn-primary">Deploy (mock)</button>
+        <label class="toggle">
+          <input type="checkbox" id="liveMode" /> Live price mock
+        </label>
+      </div>
+    </section>
+
+    <section class="right">
+      <div class="panel">
+        <h3>Strategy JSON</h3>
+        <textarea id="jsonOut" class="code" spellcheck="false" readonly></textarea>
+      </div>
+
+      <div class="panel">
+        <h3>Contract Preview (templated)</h3>
+        <pre id="contractOut" class="code"></pre>
+      </div>
+
+      <div class="panel">
+        <h3>Backtest (mocked)</h3>
+        <canvas id="chart" height="180"></canvas>
+        <div id="btSummary" class="summary"></div>
+      </div>
+
+      <div class="panel">
+        <h3>Deploy Log</h3>
+        <pre id="deployLog" class="code"></pre>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <small>Blocks → JSON → PyTeal template → Testnet. Fees ≈ 0.001 ALGO • Atomic Groups • LogicSig</small>
+  </footer>
+
+  <script src="customblocks.js"></script>
+  <script src="index.js"></script>
+</body>
+</html>
