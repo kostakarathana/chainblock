@@ -1,5 +1,5 @@
 # Sketch
-
+Note: the original name was chainblock, but it has been changed to Sketch. 
 
 ## how does it work? 
 This project aims to put algorithmic trading in the hands of the layman rather than big institutions. Through scratch-inspired draggable blocks, the user can "set and forget" logic about how to trade:
