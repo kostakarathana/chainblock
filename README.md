@@ -6,8 +6,7 @@ This project aims to put algorithmic trading in the hands of the layman rather t
 
 ![alt text](<Screenshot 2025-09-07 at 10.22.23.png>)
 
-Under the hood, we use blockly.js as well as a compiler/translator that turns the block commands into custom smart contracts. Since the contracts are immutable, we plan to impliment an admin key that can disable the contract too. Users can keep track of the contracts that they have submitted.
-
+Under the hood, we use blockly.js as well as a compiler/translator that turns the block commands into custom smart contracts with pyteal and a basic local backend for now. Since the contracts are immutable, we plan to impliment an admin key that can disable the contract too. Users can keep track of the contracts that they have submitted.
 
 
 
