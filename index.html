@@ -10,64 +10,56 @@
 </head>
 <body>
   <header class="topbar">
-    <h1>ChainBlock - Scratch for trading</h1>
-    <div class="actions">
-      <button id="btnBacktest" class="btn btn-primary">Run Backtest</button>
-      <button id="btnReset" class="btn">Reset</button>
-    </div>
+    <h1>Sketch</h1>
   </header>
 
-  <main class="grid">
-    <section class="left">
-      <!-- Toolbox (hidden XML) -->
-      <xml id="toolbox" style="display:none">
-        <!-- 1) CONTROL -->
-        <category name="Control" colour="#6C5CE7">
-          <block type="controls_if"></block>
-          <block type="try_catch"></block>
-        </category>
-        <sep></sep>
-        <!-- 2) EVENTS (boolean conditions you can plug into IF) -->
-        <category name="Events" colour="#00CEC9">
-          <block type="event_price_compare"></block>
-          <block type="event_tweet_contains"></block>
-        </category>
-        <sep></sep>
-        <!-- 3) ACTIONS (statements) -->
-        <category name="Actions" colour="#0984E3">
-          <block type="action_buy"></block>
-          <block type="action_sell"></block>
-        </category>
-        <sep></sep>
-        <!-- 4) OPERATORS (built-ins) -->
-        <category name="Operators" colour="#E17055">
-          <block type="logic_compare"></block>
-          <block type="logic_operation"></block>
-          <block type="math_arithmetic"></block>
-          <block type="math_number"></block>
-          <block type="text"></block>
-          <block type="text_join"></block>
-        </category>
-        <sep></sep>
-        <!-- 5) VARIABLES (built-in dynamic var toolbox) -->
-        <category name="Variables" custom="VARIABLE" colour="#E84393"></category>
-      </xml>
+  <!-- Full-width layout: top = Blockly (2/3 height), bottom = empty spacer (1/3) -->
+  <main class="grid fullwidth">
+    <!-- Toolbox (hidden XML) -->
+    <xml id="toolbox" style="display:none">
+      <category name="Control" colour="#6C5CE7">
+        <block type="controls_if"></block>
+        <block type="try_catch"></block>
+      </category>
+      <sep></sep>
+      <category name="Events" colour="#00CEC9">
+        <block type="event_price_compare"></block>
+        <block type="event_tweet_contains"></block>
+      </category>
+      <sep></sep>
+      <category name="Actions" colour="#0984E3">
+        <block type="action_buy"></block>
+        <block type="action_sell"></block>
+      </category>
+      <sep></sep>
+      <category name="Operators" colour="#E17055">
+        <block type="logic_compare"></block>
+        <block type="logic_operation"></block>
+        <block type="math_arithmetic"></block>
+        <block type="math_number"></block>
+        <block type="text"></block>
+        <block type="text_join"></block>
+      </category>
+      <sep></sep>
+      <category name="Variables" custom="VARIABLE" colour="#E84393"></category>
+    </xml>
 
-      <!-- Blockly mount point -->
-      <div id="blockly" class="blockly"></div>
-    </section>
+    <!-- Blockly mount point -->
+    <div id="blockly" class="blockly"></div>
 
-    <section class="right">
-      <div class="panel">
-        <h3>Sandbox</h3>
-        <canvas id="chart" height="220"></canvas>
-        <div id="btSummary" class="summary"></div>
-      </div>
+    <!-- Empty bottom spacer -->
+    <!-- Empty bottom spacer turned into a slim action bar -->
+    <section class="bottom-spacer">
+    <div class="bar">
+        <button id="btnDeploy" class="btn btn-primary">Deploy Strategy</button>
+        <button id="btnTick" class="btn">Tick (record trade)</button>
+        <span id="deployOut" class="mono"></span>
+    </div>
     </section>
   </main>
 
   <footer class="footer">
-    <small>Drag blocks to define logic. Click “Run Backtest” to simulate on mock prices.</small>
+    <small>Drag blocks to define your trading strategy visually.</small>
   </footer>
 
   <script src="customblocks.js"></script>

@@ -1,0 +1,21 @@
+# Changes here will be overwritten by Copier; NEVER EDIT MANUALLY
+_commit: 1.6.3
+_src_path: gh:algorandfoundation/algokit-python-template
+author_email: kostakarathanasopoulos@gmail.com
+author_name: kostakarathana
+code_tours: true
+contract_name: hello_world
+deployment_language: python
+ide_jetbrains: false
+ide_vscode: true
+preset_name: custom
+project_name: chainblock
+python_linter: none
+use_dispenser: true
+use_github_actions: false
+use_pre_commit: false
+use_python_black: false
+use_python_mypy: false
+use_python_pip_audit: false
+use_python_pytest: false
+

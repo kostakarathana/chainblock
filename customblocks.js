@@ -18,6 +18,7 @@
       this.setNextStatement(true, null);
       this.setColour(COLOR_CONTROL);
       this.setTooltip('Run actions in try; if fail, run catch');
+      this.setStyle({ textColour: '#000000' });  // <── force black text
     }
   };
 
