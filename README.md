@@ -11,6 +11,13 @@ Under the hood, we use blockly.js as well as a compiler/translator that turns th
 DEMO VIDEO:
 <video controls src="Screen Recording 2025-09-07 at 10.38.06.mp4" title="Title"></video>
 
+
+If video doesn't work above, here's a google drive link:
+https://drive.google.com/file/d/1_czk-OIOhu1tmJdT3Xk_pnQm3eEcY2gQ/view?usp=sharing
+
 LOOM VIDEO:
 <video controls src="Introducing Sketch_ A User-Friendly Tool for Custom Algorithmic Trading-1.mp4" title="Title"></video>
 
+
+If video doesn't work above, here's a google drive link:
+https://drive.google.com/file/d/1wiH-6p5Cr40OOAPC5QGsRxrwoXgtdvX3/view?usp=sharing
